@@ -2,23 +2,24 @@
 Project: SQLite E-commerce Database
 Author: Javaher Nourian
 Description:
-This script creates the database schema for an e-commerce system.
-It defines customers, products, orders, and order_items tables
-with primary keys, foreign keys, and constraints.
+Creates database schema for an e-commerce system including customers,
+products, orders, and order_items tables with proper constraints.
 
 Usage:
 Run this script to initialize the database structure.
 */
+
+PRAGMA foreign_keys = ON;
 
 -- =========================
 -- Customers table
 -- =========================
 CREATE TABLE customers (
     customer_id INTEGER PRIMARY KEY,
-    name TEXT,
-    email TEXT,
-    country TEXT,
-    signup_date DATE
+    full_name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    country TEXT NOT NULL,
+    signup_date DATE NOT NULL
 );
 
 -- =========================
@@ -26,9 +27,9 @@ CREATE TABLE customers (
 -- =========================
 CREATE TABLE products (
     product_id INTEGER PRIMARY KEY,
-    product_name TEXT,
-    category TEXT,
-    price REAL
+    product_name TEXT NOT NULL,
+    category TEXT NOT NULL,
+    price REAL NOT NULL CHECK (price > 0)
 );
 
 -- =========================
@@ -36,9 +37,10 @@ CREATE TABLE products (
 -- =========================
 CREATE TABLE orders (
     order_id INTEGER PRIMARY KEY,
-    customer_id INTEGER,
-    order_date DATE,
-    status TEXT,
+    customer_id INTEGER NOT NULL,
+    order_date DATE NOT NULL,
+    total_amount REAL NOT NULL CHECK (total_amount >= 0),
+    status TEXT NOT NULL DEFAULT 'Completed',
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
 
@@ -47,10 +49,10 @@ CREATE TABLE orders (
 -- =========================
 CREATE TABLE order_items (
     order_item_id INTEGER PRIMARY KEY,
-    order_id INTEGER,
-    product_id INTEGER,
-    quantity INTEGER,
-    unit_price REAL,
+    order_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL CHECK (quantity > 0),
+    unit_price REAL NOT NULL CHECK (unit_price > 0),
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
