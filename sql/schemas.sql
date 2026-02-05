@@ -1,3 +1,15 @@
+/*
+Project: SQLite E-commerce Database
+Author: Javaher Nourian
+Description:
+This script creates the database schema for an e-commerce system.
+It defines customers, products, orders, and order_items tables
+with primary keys, foreign keys, and constraints.
+
+Usage:
+Run this script to initialize the database structure.
+*/
+
 CREATE TABLE customers (
     customer_id INTEGER PRIMARY KEY,
     name TEXT,
