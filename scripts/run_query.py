@@ -5,7 +5,7 @@ from pathlib import Path
 # Paths
 BASE_DIR = Path(__file__).parent.parent  # project root
 DB_PATH = BASE_DIR / "database" / "ecommerce.db"
-QUERY_FILE = BASE_DIR / "sql" / "queries" / "orders_with_customers.sql"
+QUERY_FILE = BASE_DIR / "sql" / "queries" / "basic" / "order_with_customer_name.sql"
 
 def run_query():
     # Connect to the database
