@@ -10,19 +10,10 @@ This project demonstrates SQL analytics on a simulated e-commerce database using
 
 ## Database Schema
 
-**Tables and columns:**
-
-- **customers**:  
-  `customer_id`, `full_name`, `email`, `country`, `signup_date`
-
-- **products**:  
-  `product_id`, `product_name`, `category`, `price`
-
-- **orders**:  
-  `order_id`, `customer_id`, `order_date`, `total_amount`, `status`
-
-- **order_items**:  
-  `order_item_id`, `order_id`, `product_id`, `quantity`, `unit_price`
+- **customers**: `customer_id`, `full_name`, `email`, `country`, `signup_date`  
+- **products**: `product_id`, `product_name`, `category`, `price`  
+- **orders**: `order_id`, `customer_id`, `order_date`, `total_amount`, `status`  
+- **order_items**: `order_item_id`, `order_id`, `product_id`, `quantity`, `unit_price`
 
 ## Queries
 
