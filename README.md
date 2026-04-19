@@ -4,8 +4,15 @@ This project demonstrates SQL analytics on a simulated e-commerce database using
 
 ## Getting Started
 
-1. Run `scripts/create_db.py` to create the database and insert sample data.  
-2. Modify `QUERY_FILE` in `scripts/run_query.py` to point to the SQL query you want, then run the script to see the results.
+1.  Run `scripts/create_db.py` to create the database and insert sample data:
+```bash
+python scripts/create_db.py
+```
+2. Execute `scripts/run_query.py` and provide the desired SQL query filename as a command-line argument. The script will process the specified file and display the results. For example:
+```bash
+python scripts/run_query.py revenue_per_product.sql
+```
+If no query file is provided, the script will display usage instructions.
 
 ## Database Schema
 
